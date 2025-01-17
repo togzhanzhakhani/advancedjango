@@ -41,6 +41,15 @@ INSTALLED_APPS = [
     'core'
 ]
 
+REST_FRAMEWORK = { 
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', 
+    'DEFAULT_FILTER_BACKENDS': [ 
+        'django_filters.rest_framework.DjangoFilterBackend', 
+        'rest_framework.filters.SearchFilter', 
+    ],
+    'PAGE_SIZE': 2, 
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -123,3 +132,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1, 
+    'disable_existing_loggers': False, 
+    'handlers': { 
+        'console': { 
+            'class': 'logging.StreamHandler', 
+        }, 
+    }, 
+    'root': { 
+        'handlers': ['console'], 
+        'level': 'INFO', 
+    }, 
+}
