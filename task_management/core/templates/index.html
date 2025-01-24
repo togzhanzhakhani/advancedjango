@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - Task Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+            <span class="navbar-text text-light">Welcome, Admin</span>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Admin Dashboard</h1>
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                Task Management
+            </div>
+            <div class="card-body">
+                <a href="/admin/core/task/add/" class="btn btn-success">Add Task</a>
+                <a href="/admin/core/task/" class="btn btn-primary">View All Tasks</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                Project Management
+            </div>
+            <div class="card-body">
+                <a href="/admin/core/project/add/" class="btn btn-danger">Add Project</a>
+                <a href="/admin/core/project/" class="btn btn-secondary">View All Projects</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
