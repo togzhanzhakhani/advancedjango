@@ -1,0 +1,11 @@
+django
+djangorestframework
+djangorestframework-simplejwt
+celery
+redis
+psycopg2-binary
+channels
+channels-redis
+drf-yasg
+Pillow
+reportlab
