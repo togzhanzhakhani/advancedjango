@@ -1,3 +1,5 @@
+## Video uploaded to YouTube: https://youtu.be/98q190ZcBJU
+
 # 1. Clone the Repository
 ```sh
 git clone https://github.com/togzhanzhakhani/advancedjango/sales_trading
