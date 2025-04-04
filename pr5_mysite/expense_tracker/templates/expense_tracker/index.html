@@ -1,86 +1,102 @@
-{%extends 'expense_tracker/base.html'%}
+{% extends 'expense_tracker/base.html' %}
 {% load static %}
-{%block body%}
-    <h1>This is the index page</h1>
-    <form class="shadow-lg m-10 rounded-lg" method="post">
-        {%csrf_token%}
 
-        <div class="form-container px-10 py-10 flex">
-            
-            <div class="mx-10">
-                <div class="mb-5">
-                    <label>Expense name</label>
+{% block body %}
+<div class="max-w-7xl mx-auto px-6 py-10">
+    <h1 class="text-3xl font-semibold mb-6">Expense Tracker</h1>
 
-                </div>
-                <div class="border">
-                    {{expense_form.name}}
-                </div>
+    <form method="post" class="bg-white shadow-md rounded-lg p-6 mb-6">
+        {% csrf_token %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="form-group">
+                <label for="id_name" class="block text-sm font-medium text-gray-700">Expense Name</label>
+                {{ expense_form.name }}
             </div>
 
-            <div class="mx-10">
-                <div class="mb-5">
-                    <label>Amount</label>
-
-                </div>
-                <div class="border">
-                    {{expense_form.amount}}
-                </div>
+            <div class="form-group">
+                <label for="id_amount" class="block text-sm font-medium text-gray-700">Amount</label>
+                {{ expense_form.amount }}
             </div>
 
-            <div class="mx-10">
-                <div class="mb-5">
-                    <label>Category</label>
-
-                </div>
-                <div class="border">
-                    {{expense_form.category}}
-                </div>
+            <div class="form-group">
+                <label for="id_category" class="block text-sm font-medium text-gray-700">Category</label>
+                {{ expense_form.category }}
             </div>
 
-            <div class="mx-10 mt-8">
-                <button class="bg-green-500 px-5 py-2 rounded-lg text-white font-bold">Add</button>
+            <div class="form-group">
+                <label for="id_description" class="block text-sm font-medium text-gray-700">Description</label>
+                {{ expense_form.description }}
             </div>
+        </div>
+
+        <div class="flex justify-end mt-6">
+            <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-lg font-bold hover:bg-green-600 transition">Add</button>
         </div>
     </form>
 
-    <div>
-        Expenses
+    <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Expenses</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full table-auto">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="py-3 px-6 text-left">Name</th>
+                        <th class="py-3 px-6 text-left">Amount</th>
+                        <th class="py-3 px-6 text-left">Category</th>
+                        <th class="py-3 px-6 text-left">Date</th>
+                        <th class="py-3 px-6 text-center">Edit</th>
+                        <th class="py-3 px-6 text-center">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for expense in expenses %}
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="py-3 px-6">{{ expense.name }}</td>
+                        <td class="py-3 px-6">{{ expense.amount }}</td>
+                        <td class="py-3 px-6">{{ expense.category }}</td>
+                        <td class="py-3 px-6">{{ expense.date }}</td>
+                        <td class="py-3 px-6 text-center">
+                            <a href="{% url 'edit' expense.id %}" class="text-blue-500 hover:text-blue-700">Edit</a>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <form method="post" action="{% url 'delete' expense.id %}">
+                                {% csrf_token %}
+                                <button type="submit" name="delete" class="text-red-500 hover:text-red-700">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center py-3 text-gray-500">No expenses found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="shadow-lg m-10 rounded-lg">
-        <div class="expense-header flex flex-wrap space-x-40">
-            <span>Name</span>
-            <span>Amount</span>
-            <span>Category</span>
-            <span>Date</span>
-            <span>Edit</span>
-            <span>Delete</span>
-        </div>
-        <hr class="m-10">
-        {% for expense in expenses %}
-        <div class="expense-row flex-wrap px-20 py-5">
-            <span class="font-bold">{{ expense.name }}</span>
-            <span class="font-bold">{{ expense.amount }}</span>
-            <span class="font-bold">{{ expense.category }}</span>
-            <span class="font-bold">{{ expense.date }}</span>
-            <span class="pl-24"><a href="{% url 'edit' expense.id %}">
-                <img class="h-7" src="{% static 'expense_tracker/images/edit.png' %}" alt="Edit">
-                </a></span>
-            <span class="pl-22">
-                <form method="post" action="{% url 'delete' expense.id%}">
-                    {%csrf_token%}
-                    <button type="submit" name="delete">
-                        <img class="h-7" src="{% static 'expense_tracker/images/delete.png' %}" alt="Edit">
-                    </button>
-                </form>
-            </span>
-        </div>
-        {%endfor%}
-        <div class="px-72 py-5">
-            <span class="font-bold text-green-500">
-                Total: {{total_expenses.amount__sum}}
-            </span>
-        </div>
+
+    <div class="flex justify-end mb-10">
+        <span class="text-2xl font-semibold text-green-500">
+            Total: ${{ total_expenses.amount__sum }}
+        </span>
     </div>
+
+    <form method="GET" class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+                <label for="id_date_0" class="block text-sm font-medium text-gray-700">Date Range</label>
+                {{ filter.form.date }}
+            </div>
+            <div>
+                <label for="id_category" class="block text-sm font-medium text-gray-700">Category</label>
+                {{ filter.form.category }}
+            </div>
+        </div>
+        <div class="flex justify-end mt-6">
+            <button type="submit" class="bg-indigo-600 text-white py-2 px-6 rounded-lg font-bold hover:bg-indigo-700 transition">Apply Filters</button>
+        </div>
+    </form>
+
     <div class="flex">
         <div class="w-1/3 shadow-lg ml-10 rounded-lg">
             <h1 class="ml-10 font-bold text-gray-500">Last 365 days</h1>
@@ -264,6 +280,4 @@ var myChart1 = new Chart(ctx1, {
 });
 
     </script>
-{%endblock%}
-
-
+{% endblock %}

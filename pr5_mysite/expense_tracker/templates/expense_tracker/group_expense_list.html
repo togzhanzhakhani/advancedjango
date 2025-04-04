@@ -1,0 +1,43 @@
+{%extends 'expense_tracker/base.html'%}
+
+{%block body%}
+<h2 class="text-2xl font-semibold mb-6">Group Expenses</h2>
+
+<div class="overflow-x-auto bg-white shadow-md rounded-lg p-6">
+    <table class="min-w-full table-auto">
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="py-3 px-6 text-left">Expense Name</th>
+                <th class="py-3 px-6 text-left">Amount</th>
+                <th class="py-3 px-6 text-left">Date</th>
+                <th class="py-3 px-6 text-left">Users</th>
+                <th class="py-3 px-6 text-left">Share</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense_share in expense_shares %}
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3 px-6">{{ expense_share.expense.name }}</td>
+                    <td class="py-3 px-6">${{ expense_share.expense.amount }}</td>
+                    <td class="py-3 px-6">{{ expense_share.expense.date }}</td>
+                    <td class="py-3 px-6">
+                        {% for user in expense_share.expense.users.all %}
+                            <span>{{ user.username }}</span><br>
+                        {% endfor %}
+                    </td>
+                    <td class="py-3 px-6">
+                        {% for user, share in expense_share.shares.items %}
+                            <span>{{ user }}: ${{ share }}</span><br>
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5" class="p-4 text-center text-gray-500">No group expenses found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

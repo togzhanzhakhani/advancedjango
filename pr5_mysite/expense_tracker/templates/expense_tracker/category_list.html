@@ -1,0 +1,17 @@
+{%extends 'expense_tracker/base.html'%}
+
+{%block body%}
+  <div class="max-w-4xl mx-auto p-4">
+    <h2 class="text-2xl font-semibold mb-4">My Categories</h2>
+
+    <ul class="space-y-3">
+      {% for category in categories %}
+        <li class="flex justify-between items-center p-4 bg-gray-100 rounded-md shadow-sm">
+          <span class="text-lg">{{ category.name }}</span>
+        </li>
+      {% empty %}
+        <li class="p-4 text-gray-500">No categories found.</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

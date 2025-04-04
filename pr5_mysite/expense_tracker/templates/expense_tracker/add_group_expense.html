@@ -1,0 +1,31 @@
+{%extends 'expense_tracker/base.html'%}
+
+{%block body%}
+<form method="post" class="bg-white shadow-md rounded-lg p-6 mb-6">
+    {% csrf_token %}
+    <div class="space-y-6">
+        <div class="form-group">
+            <label for="name" class="block text-sm font-medium text-gray-700">Expense Name</label>
+            <input type="text" name="name" id="name" class="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+        </div>
+
+        <div class="form-group">
+            <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+            <input type="number" name="amount" id="amount" class="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+        </div>
+
+        <div class="form-group">
+            <label for="users" class="block text-sm font-medium text-gray-700">Users</label>
+            <select name="users" id="users" class="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" multiple required>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="flex justify-end mt-6">
+        <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-lg font-bold hover:bg-green-600 transition">Add Group Expense</button>
+    </div>
+</form>
+{% endblock %}
