@@ -15,6 +15,13 @@ python manage.py createsuperuser
 - `http://127.0.0.1:8000/admin/`
 
 ## Features
+- The frontend for this project is developed using React.
+- To start the frontend, navigate to the frontend directory and run the following command:
+```sh
+npm start
+```
+This will launch the frontend app at `http://localhost:3000`.
+## Features
 ### Background Tasks with Celery:
 - Email messages for trade execution are processed asynchronously.
 - Celery & Redis are integrated to handle background tasks.
