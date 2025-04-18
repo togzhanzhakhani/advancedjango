@@ -1,0 +1,111 @@
+/* Общие контейнеры */
+.resume-upload-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Формы */
+  .upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-label {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .specialization-select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .submit-btn {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Дроп-зона */
+  .dropzone {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: 2px dashed #bbb;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .dropzone-text {
+    text-align: center;
+    font-size: 1rem;
+    color: #888;
+    margin-top: 10px;
+  }
+  
+  /* Результаты анализа */
+  .analysis-results {
+    margin-top: 30px;
+  }
+  
+  .results-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .match-percentage {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .skill-list,
+  .suggestions-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .skill-item,
+  .suggestion-item {
+    background-color: #f2f2f2;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .no-skills-message {
+    font-size: 1rem;
+    color: #777;
+    font-style: italic;
+  }  

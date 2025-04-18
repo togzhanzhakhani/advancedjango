@@ -1,0 +1,53 @@
+/* Общий стиль для контейнера */
+.resume-list-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .resume-list-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .resume-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 500px;
+  }
+  
+  .resume-item {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resume-item h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .resume-item p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .resume-item a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .resume-item a:hover {
+    background-color: #0056b3;
+  }
+  

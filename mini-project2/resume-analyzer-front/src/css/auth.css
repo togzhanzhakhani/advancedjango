@@ -1,0 +1,238 @@
+/* Основной контейнер для логина */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f4f7;
+  }
+  
+  /* Заголовок */
+  .login-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Формуляр */
+  .login-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Группировка элементов в форме */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Метки для полей */
+  .label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  /* Поля ввода */
+  .input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* При фокусе меняется цвет рамки */
+  .input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Кнопка отправки */
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* При наведении на кнопку */
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Стили для доступных сообщений и ошибок */
+  .error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 10px;
+  }
+  
+  /* Основной контейнер для страницы регистрации */
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f4f7;
+  }
+  
+  /* Заголовок */
+  .register-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Формуляр */
+  .register-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Группировка элементов в форме */
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Метки для полей */
+  .label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  /* Поля ввода */
+  .input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* При фокусе меняется цвет рамки */
+  .input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Кнопка отправки */
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* При наведении на кнопку */
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Стили для доступных сообщений и ошибок */
+  .error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 10px;
+  }
+  
+/* Стиль для контейнера с ссылкой на страницу логина */
+.login-link {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .login-link p {
+    font-size: 1rem;
+    color: #161616;
+    margin-bottom: 5px;
+  }
+  
+  .login-link .link-button {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .login-link .link-button:hover {
+    color: #0056b3;
+  }    
+
+.notification-container {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    background-color: #4CAF50; 
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    z-index: 1000;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .notification-message {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+  }  
+
+.logout-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #d32f2f;
+  }
+  
